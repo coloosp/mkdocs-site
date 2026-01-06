@@ -1,140 +1,142 @@
-/* 全局背景（极致明亮：纯白渐变） */
+/* 全局背景（浅白，和参考站一致） */
 .md-container {
-  background: linear-gradient(135deg, #ffffff 0%, #f9fafb 100%);
-  background-attachment: fixed;
-  color: #111827; /* 纯黑偏浅，更清晰 */
+  background: #ffffff;
+  color: #212529;
 }
 
-/* 主内容区（纯白+极轻阴影） */
+/* 导航栏（深蓝色，参考站风格） */
+.md-header {
+  background: #1a2b4a !important; /* 深蓝导航栏 */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1) !important;
+  border-bottom: none !important;
+}
+.md-header__topic {
+  color: #ffffff !important; /* 导航栏文字白色 */
+}
+.md-tabs {
+  background: #1a2b4a !important; /* 标签栏和导航栏同色 */
+}
+.md-tabs__link {
+  color: rgba(255, 255, 255, 0.8) !important;
+}
+.md-tabs__link--active {
+  color: #ffffff !important;
+  border-bottom: 2px solid #ffffff !important;
+}
+
+/* 主内容区（浅白+窄边距，参考站简约风） */
 .md-main {
-  background: rgba(255, 255, 255, 0.98);
-  backdrop-filter: blur(4px);
-  border-radius: 12px;
-  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.03); /* 极淡阴影 */
-  border: 1px solid rgba(243, 244, 246, 1);
-  padding: 2rem !important;
-  margin-top: 2rem !important;
+  background: #ffffff;
+  border-radius: 0;
+  box-shadow: none;
+  border: none;
+  padding: 1.5rem !important;
+  margin-top: 0 !important;
 }
 
-/* 个人信息卡片（超浅蓝背景） */
+/* 个人信息卡片（参考站的简约卡片） */
 .profile-card {
   display: flex;
   flex-direction: column;
-  gap: 2rem;
-  padding: 2rem;
-  background: rgba(59, 130, 246, 0.03); /* 超浅蓝透明 */
-  border-radius: 10px;
-  margin: 2rem 0;
+  gap: 1.5rem;
+  padding: 1.5rem;
+  background: #f8f9fa; /* 浅灰卡片背景 */
+  border-radius: 4px;
+  margin: 1rem 0;
   align-items: center;
 }
-
-/* 头像样式（明亮版） */
 .avatar {
-  width: 150px;
-  height: 150px;
+  width: 120px;
+  height: 120px;
   border-radius: 50%;
   object-fit: cover;
-  border: 4px solid #ffffff;
-  box-shadow: 0 2px 8px rgba(59, 130, 246, 0.1); /* 极淡阴影 */
-  margin-bottom: 1rem;
+  border: 3px solid #ffffff;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  margin-bottom: 0.5rem;
 }
-
 .profile-info {
   text-align: center;
   width: 100%;
 }
-
 .profile-info h2 {
-  color: #2563eb; /* 清新天蓝色标题 */
-  margin-bottom: 1rem;
-  font-weight: 700;
+  color: #1a2b4a; /* 卡片标题用深蓝 */
+  margin-bottom: 0.5rem;
+  font-weight: 600;
 }
-
 .profile-info p {
-  line-height: 1.8;
-  font-size: 1.1rem;
-  color: #374151; /* 浅黑文字，不刺眼 */
+  line-height: 1.6;
+  font-size: 1rem;
+  color: #495057;
 }
 
-/* 按钮样式（清新明亮） */
+/* 按钮样式（参考站的简约按钮） */
 .btn {
   display: inline-block;
-  padding: 0.8rem 1.5rem;
-  background: #3b82f6; /* 天蓝色主按钮 */
+  padding: 0.6rem 1.2rem;
+  background: #1a2b4a;
   color: white;
   text-decoration: none;
-  border-radius: 8px;
-  font-weight: 600;
-  margin-right: 1rem;
-  margin-bottom: 1rem;
-  transition: all 0.3s ease;
-  border: none;
+  border-radius: 4px;
+  font-weight: 500;
+  margin-right: 0.8rem;
+  margin-bottom: 0.8rem;
+  transition: background 0.2s ease;
 }
-
 .btn:hover {
-  background: #60a5fa; /* 更浅的天蓝hover */
-  transform: translateY(-2px);
-  box-shadow: 0 4px 10px rgba(59, 130, 246, 0.2); /* 轻阴影 */
+  background: #2c3e50;
+  transform: none;
+  box-shadow: none;
 }
-
 .btn-secondary {
-  background: #10b981; /* 清新绿色次要按钮 */
+  background: #007bff;
 }
-
 .btn-secondary:hover {
-  background: #34d399;
+  background: #0069d9;
 }
 
-/* 表格美化（全白） */
+/* 表格美化（参考站简约表格） */
 .md-typeset table {
   background: #ffffff;
-  border-radius: 8px;
+  border-radius: 4px;
   overflow: hidden;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.02);
-  border: 1px solid #f3f4f6;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+  border: 1px solid #dee2e6;
 }
-
 .md-typeset table th {
-  background: rgba(59, 130, 246, 0.05); /* 超浅蓝表头 */
-  color: #2563eb;
-  border-bottom: 2px solid #eff6ff;
+  background: #f8f9fa;
+  color: #1a2b4a;
+  border-bottom: 2px solid #dee2e6;
 }
-
 .md-typeset table td {
-  border-bottom: 1px solid #f9fafb;
+  border-bottom: 1px solid #e9ecef;
 }
 
-/* 代码块（纯白+极细边框） */
+/* 代码块（参考站简约代码块） */
 .md-typeset pre > code {
-  border-radius: 8px;
-  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.04);
-  background: #ffffff !important;
-  border: 1px solid #f3f4f6;
-  color: #111827;
+  border-radius: 4px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+  background: #f8f9fa !important;
+  border: 1px solid #dee2e6;
+  color: #212529;
 }
 
-/* 文章配图（明亮版） */
+/* 文章配图（参考站风格） */
 .article-img {
-  max-width: 80%;
-  border-radius: 8px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
-  margin: 2rem auto;
+  max-width: 90%;
+  border-radius: 4px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  margin: 1.5rem auto;
   display: block;
-  border: 1px solid #f3f4f6;
+  border: 1px solid #dee2e6;
 }
 
-/* 额外优化：去掉所有深色元素 */
-.md-header {
-  background: #ffffff !important;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05) !important;
-  border-bottom: 1px solid #f3f4f6 !important;
+/* 侧边栏目录（参考站样式） */
+.md-sidebar__inner {
+  background: #f8f9fa;
+  border-radius: 4px;
+  padding: 1rem;
+  margin-top: 1rem;
 }
-
-.md-tabs {
-  background: #ffffff !important;
-}
-
-.md-footer {
-  background: #f9fafb !important;
-  color: #4b5563 !important;
+.md-nav__title {
+  color: #1a2b4a !important;
 }
