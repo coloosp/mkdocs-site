@@ -1,47 +1,65 @@
-/* 全局背景（暗黑模式更有质感） */
+/* 全局背景（明亮清新风格） */
 .md-container {
-  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+  background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
   background-attachment: fixed;
-  color: #e0e0e0;
+  color: #1e293b; /* 深灰文字，更护眼 */
 }
 
-/* 主内容区美化（圆角+毛玻璃） */
+/* 主内容区美化（圆角+轻毛玻璃） */
 .md-main {
-  background: rgba(255, 255, 255, 0.05);
-  backdrop-filter: blur(10px);
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(8px);
   border-radius: 12px;
-  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3);
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  border: 1px solid rgba(203, 213, 225, 0.5);
   padding: 2rem !important;
   margin-top: 2rem !important;
 }
 
-/* 个人信息卡片样式 */
+/* 个人信息卡片样式（明亮版） */
 .profile-card {
   display: flex;
   flex-direction: column;
   gap: 2rem;
   padding: 2rem;
-  background: rgba(76, 51, 152, 0.15);
+  background: rgba(99, 102, 241, 0.08); /* 浅紫透明背景 */
   border-radius: 10px;
   margin: 2rem 0;
+  align-items: center; /* 内容居中（方便放头像） */
+}
+
+/* 头像样式（新增） */
+.avatar {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%; /* 圆形头像 */
+  object-fit: cover;
+  border: 4px solid #eff6ff;
+  box-shadow: 0 4px 12px rgba(99, 102, 241, 0.2);
+  margin-bottom: 1rem;
+}
+
+.profile-info {
+  text-align: center; /* 文字居中 */
+  width: 100%;
 }
 
 .profile-info h2 {
-  color: #d8b4fe; /* 浅紫标题色 */
+  color: #4f46e5; /* 蓝紫色标题 */
   margin-bottom: 1rem;
 }
 
 .profile-info p {
   line-height: 1.8;
   font-size: 1.1rem;
+  color: #334155;
 }
 
-/* 按钮样式（跳转文章） */
+/* 按钮样式（明亮版） */
 .btn {
   display: inline-block;
   padding: 0.8rem 1.5rem;
-  background: #7c3aed; /* 紫色按钮 */
+  background: #4f46e5; /* 蓝紫主按钮 */
   color: white;
   text-decoration: none;
   border-radius: 8px;
@@ -52,34 +70,50 @@
 }
 
 .btn:hover {
-  background: #8b5cf6; /* hover变浅 */
+  background: #6366f1; /* hover变浅 */
   transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(124, 58, 237, 0.4);
+  box-shadow: 0 4px 12px rgba(99, 102, 241, 0.3);
 }
 
 .btn-secondary {
-  background: #14b8a6; /* 次要按钮（青绿色） */
+  background: #0ea5e9; /* 次要按钮（天蓝色） */
 }
 
 .btn-secondary:hover {
-  background: #2dd4bf;
+  background: #38bdf8;
 }
 
-/* 表格美化 */
+/* 表格美化（明亮版） */
 .md-typeset table {
-  background: rgba(255, 255, 255, 0.05);
+  background: rgba(255, 255, 255, 0.9);
   border-radius: 8px;
   overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
 }
 
 .md-typeset table th {
-  background: rgba(124, 58, 237, 0.2);
-  color: #d8b4fe;
+  background: rgba(99, 102, 241, 0.1);
+  color: #4f46e5;
+  border-bottom: 2px solid #e0e7ff;
 }
 
-/* 代码块美化 */
+.md-typeset table td {
+  border-bottom: 1px solid #f1f5f9;
+}
+
+/* 代码块美化（明亮版） */
 .md-typeset pre > code {
   border-radius: 8px;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
-  background: #1e1e2e !important;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  background: #ffffff !important; /* 白色代码背景 */
+  border: 1px solid #e2e8f0;
+}
+
+/* 文章配图样式（新增） */
+.article-img {
+  max-width: 80%; /* 图片最大宽度 */
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  margin: 2rem auto; /* 上下间距+居中 */
+  display: block; /* 确保居中生效 */
 }
