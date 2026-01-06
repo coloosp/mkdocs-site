@@ -42,5 +42,7 @@ markdown_extensions:
       pygments_lang_class: true
   - pymdownx.inlinehilite
   - pymdownx.snippets
+# 独立插件配置
+plugins:
   - search:
       lang: zh  # 中文搜索
