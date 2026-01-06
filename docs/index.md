@@ -7,7 +7,6 @@
     <p>日常：敲代码 | 刷题 | 写博客 | 折腾开源项目</p>
   </div>
   <div class="profile-links">
-    <a href="articles/backtrack.md" class="btn">📝 查看我的第一篇文章：回溯杂谈</a>
     <a href="https://github.com/coloosp" target="_blank" class="btn btn-secondary">⭐ 我的GitHub</a>
   </div>
 </div>
