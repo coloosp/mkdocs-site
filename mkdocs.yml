@@ -1,1 +1,27 @@
 site_name: Coloop
+# 主题配置
+theme:
+  name: material
+  palette:
+    # 暗黑模式（默认）
+    - scheme: slate
+      primary: deep purple
+      accent: pink
+      toggle:
+        icon: material/weather-night
+        name: 切换到亮色模式
+    # 亮色模式（可选）
+    - scheme: default
+      primary: indigo
+      accent: teal
+      toggle:
+        icon: material/weather-sunny
+        name: 切换到暗色模式
+  # 圆角+阴影（更现代）
+  features:
+    - content.code.copy  # 代码块一键复制
+    - navigation.tabs    # 顶部标签导航
+    - navigation.sections # 侧边栏分组折叠
+# 自定义CSS（和theme同级，不是在theme里面！）
+extra_css:
+  - stylesheets/extra.css
