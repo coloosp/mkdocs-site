@@ -1,65 +1,66 @@
-/* 全局背景（明亮清新风格） */
+/* 全局背景（极致明亮：纯白渐变） */
 .md-container {
-  background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+  background: linear-gradient(135deg, #ffffff 0%, #f9fafb 100%);
   background-attachment: fixed;
-  color: #1e293b; /* 深灰文字，更护眼 */
+  color: #111827; /* 纯黑偏浅，更清晰 */
 }
 
-/* 主内容区美化（圆角+轻毛玻璃） */
+/* 主内容区（纯白+极轻阴影） */
 .md-main {
-  background: rgba(255, 255, 255, 0.85);
-  backdrop-filter: blur(8px);
+  background: rgba(255, 255, 255, 0.98);
+  backdrop-filter: blur(4px);
   border-radius: 12px;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
-  border: 1px solid rgba(203, 213, 225, 0.5);
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.03); /* 极淡阴影 */
+  border: 1px solid rgba(243, 244, 246, 1);
   padding: 2rem !important;
   margin-top: 2rem !important;
 }
 
-/* 个人信息卡片样式（明亮版） */
+/* 个人信息卡片（超浅蓝背景） */
 .profile-card {
   display: flex;
   flex-direction: column;
   gap: 2rem;
   padding: 2rem;
-  background: rgba(99, 102, 241, 0.08); /* 浅紫透明背景 */
+  background: rgba(59, 130, 246, 0.03); /* 超浅蓝透明 */
   border-radius: 10px;
   margin: 2rem 0;
-  align-items: center; /* 内容居中（方便放头像） */
+  align-items: center;
 }
 
-/* 头像样式（新增） */
+/* 头像样式（明亮版） */
 .avatar {
   width: 150px;
   height: 150px;
-  border-radius: 50%; /* 圆形头像 */
+  border-radius: 50%;
   object-fit: cover;
-  border: 4px solid #eff6ff;
-  box-shadow: 0 4px 12px rgba(99, 102, 241, 0.2);
+  border: 4px solid #ffffff;
+  box-shadow: 0 2px 8px rgba(59, 130, 246, 0.1); /* 极淡阴影 */
   margin-bottom: 1rem;
 }
 
 .profile-info {
-  text-align: center; /* 文字居中 */
+  text-align: center;
   width: 100%;
 }
 
 .profile-info h2 {
-  color: #4f46e5; /* 蓝紫色标题 */
+  color: #2563eb; /* 清新天蓝色标题 */
   margin-bottom: 1rem;
+  font-weight: 700;
 }
 
 .profile-info p {
   line-height: 1.8;
   font-size: 1.1rem;
-  color: #334155;
+  color: #374151; /* 浅黑文字，不刺眼 */
 }
 
-/* 按钮样式（明亮版） */
+/* 按钮样式（清新明亮） */
 .btn {
   display: inline-block;
   padding: 0.8rem 1.5rem;
-  background: #4f46e5; /* 蓝紫主按钮 */
+  background: #3b82f6; /* 天蓝色主按钮 */
   color: white;
   text-decoration: none;
   border-radius: 8px;
@@ -67,53 +68,73 @@
   margin-right: 1rem;
   margin-bottom: 1rem;
   transition: all 0.3s ease;
+  border: none;
 }
 
 .btn:hover {
-  background: #6366f1; /* hover变浅 */
+  background: #60a5fa; /* 更浅的天蓝hover */
   transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(99, 102, 241, 0.3);
+  box-shadow: 0 4px 10px rgba(59, 130, 246, 0.2); /* 轻阴影 */
 }
 
 .btn-secondary {
-  background: #0ea5e9; /* 次要按钮（天蓝色） */
+  background: #10b981; /* 清新绿色次要按钮 */
 }
 
 .btn-secondary:hover {
-  background: #38bdf8;
+  background: #34d399;
 }
 
-/* 表格美化（明亮版） */
+/* 表格美化（全白） */
 .md-typeset table {
-  background: rgba(255, 255, 255, 0.9);
+  background: #ffffff;
   border-radius: 8px;
   overflow: hidden;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.02);
+  border: 1px solid #f3f4f6;
 }
 
 .md-typeset table th {
-  background: rgba(99, 102, 241, 0.1);
-  color: #4f46e5;
-  border-bottom: 2px solid #e0e7ff;
+  background: rgba(59, 130, 246, 0.05); /* 超浅蓝表头 */
+  color: #2563eb;
+  border-bottom: 2px solid #eff6ff;
 }
 
 .md-typeset table td {
-  border-bottom: 1px solid #f1f5f9;
+  border-bottom: 1px solid #f9fafb;
 }
 
-/* 代码块美化（明亮版） */
+/* 代码块（纯白+极细边框） */
 .md-typeset pre > code {
   border-radius: 8px;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-  background: #ffffff !important; /* 白色代码背景 */
-  border: 1px solid #e2e8f0;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.04);
+  background: #ffffff !important;
+  border: 1px solid #f3f4f6;
+  color: #111827;
 }
 
-/* 文章配图样式（新增） */
+/* 文章配图（明亮版） */
 .article-img {
-  max-width: 80%; /* 图片最大宽度 */
+  max-width: 80%;
   border-radius: 8px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-  margin: 2rem auto; /* 上下间距+居中 */
-  display: block; /* 确保居中生效 */
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  margin: 2rem auto;
+  display: block;
+  border: 1px solid #f3f4f6;
+}
+
+/* 额外优化：去掉所有深色元素 */
+.md-header {
+  background: #ffffff !important;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05) !important;
+  border-bottom: 1px solid #f3f4f6 !important;
+}
+
+.md-tabs {
+  background: #ffffff !important;
+}
+
+.md-footer {
+  background: #f9fafb !important;
+  color: #4b5563 !important;
 }
