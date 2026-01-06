@@ -1,11 +1,85 @@
-/* extra.css 内容 */
+/* 全局背景（暗黑模式更有质感） */
 .md-container {
   background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
   background-attachment: fixed;
+  color: #e0e0e0;
 }
+
+/* 主内容区美化（圆角+毛玻璃） */
 .md-main {
   background: rgba(255, 255, 255, 0.05);
   backdrop-filter: blur(10px);
+  border-radius: 12px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 2rem !important;
+  margin-top: 2rem !important;
+}
+
+/* 个人信息卡片样式 */
+.profile-card {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  padding: 2rem;
+  background: rgba(76, 51, 152, 0.15);
+  border-radius: 10px;
+  margin: 2rem 0;
+}
+
+.profile-info h2 {
+  color: #d8b4fe; /* 浅紫标题色 */
+  margin-bottom: 1rem;
+}
+
+.profile-info p {
+  line-height: 1.8;
+  font-size: 1.1rem;
+}
+
+/* 按钮样式（跳转文章） */
+.btn {
+  display: inline-block;
+  padding: 0.8rem 1.5rem;
+  background: #7c3aed; /* 紫色按钮 */
+  color: white;
+  text-decoration: none;
   border-radius: 8px;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+  font-weight: 600;
+  margin-right: 1rem;
+  margin-bottom: 1rem;
+  transition: all 0.3s ease;
+}
+
+.btn:hover {
+  background: #8b5cf6; /* hover变浅 */
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(124, 58, 237, 0.4);
+}
+
+.btn-secondary {
+  background: #14b8a6; /* 次要按钮（青绿色） */
+}
+
+.btn-secondary:hover {
+  background: #2dd4bf;
+}
+
+/* 表格美化 */
+.md-typeset table {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.md-typeset table th {
+  background: rgba(124, 58, 237, 0.2);
+  color: #d8b4fe;
+}
+
+/* 代码块美化 */
+.md-typeset pre > code {
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+  background: #1e1e2e !important;
 }

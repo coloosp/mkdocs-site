@@ -1,27 +1,46 @@
-site_name: Coloop
-# 主题配置
+site_name: Coloop的个人博客
+# 导航配置（首页+文章页）
+nav:
+  - 首页: index.md
+  - 技术文章:
+    - 回溯杂谈: articles/backtrack.md
+# 主题美化配置
 theme:
   name: material
+  # 暗黑/亮色模式切换
   palette:
-    # 暗黑模式（默认）
-    - scheme: slate
-      primary: deep purple
-      accent: pink
+    - scheme: slate       # 暗黑模式（默认）
+      primary: deep purple # 主色调（深紫）
+      accent: pink        # 强调色（粉）
       toggle:
         icon: material/weather-night
         name: 切换到亮色模式
-    # 亮色模式（可选）
-    - scheme: default
-      primary: indigo
-      accent: teal
+    - scheme: default     # 亮色模式
+      primary: indigo     # 主色调（靛蓝）
+      accent: teal        # 强调色（青）
       toggle:
         icon: material/weather-sunny
         name: 切换到暗色模式
-  # 圆角+阴影（更现代）
+  # 交互功能
   features:
-    - content.code.copy  # 代码块一键复制
-    - navigation.tabs    # 顶部标签导航
+    - content.code.copy   # 代码块一键复制
+    - navigation.tabs     # 顶部标签导航
     - navigation.sections # 侧边栏分组折叠
-# 自定义CSS（和theme同级，不是在theme里面！）
+    - navigation.top      # 返回顶部按钮
+    - toc.follow          # 侧边栏跟随滚动
+  # 自定义图标（可选）
+  icon:
+    repo: fontawesome/brands/github
+# 自定义CSS（引入我们写的美化样式）
 extra_css:
   - stylesheets/extra.css
+# 支持代码高亮/中文搜索
+markdown_extensions:
+  - pymdownx.highlight:
+      anchor_linenums: true
+      line_spans: __span
+      pygments_lang_class: true
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - search:
+      lang: zh  # 中文搜索
