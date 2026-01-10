@@ -1,23 +1,50 @@
+# ========== 必配项，修复site_name报错，必须保留 ==========
+site_name: Coloop的个人博客
+
+# ========== 你的导航配置，不变 ==========
+nav:
+  - 首页: index.md
+  - 技术文章:
+    - 回溯杂谈: articles/backtrack.md
+
+# ========== 你想要的主题配置【完整保留+删了无效配置】核心！深蓝色固定导航 ==========
 theme:
   name: material
-  # 强制导航栏为深蓝色（覆盖默认样式）
+  # 强制导航栏为深蓝色（覆盖默认样式，你的原版配置，完美）
   palette:
-    - scheme: slate  # 用slate的深色框架，但自定义主色
-      primary: blue  # 深蓝色主色
+    - scheme: slate  # 用slate深色框架，保证导航栏底色是深蓝
+      primary: blue  # 深蓝色主色调（和参考站一致的蓝）
       accent: light blue
       toggle:
         icon: material/weather-sunny
         name: 切换到亮色模式
-  # 开启导航栏固定+完整宽度
+  # 开启导航栏固定+完整功能，你的原版配置
   features:
-    - content.code.copy
-    - navigation.tabs
-    - navigation.sections
-    - navigation.top
-    - toc.follow
-    - header.fixed  # 导航栏固定在顶部
-    - header.autohide # 滚动时自动隐藏（可选）
+    - content.code.copy   # 代码一键复制
+    - navigation.tabs     # 顶部标签导航
+    - navigation.sections # 侧边栏分组折叠
+    - navigation.top      # 返回顶部按钮
+    - toc.follow          # 侧边栏目录跟随
+    - header.fixed        # 导航栏固定在顶部 ✅ 重点要的
+    - header.autohide     # 滚动时导航栏自动隐藏（可选，保留）
+  # github图标，不变
   icon:
     repo: fontawesome/brands/github
-  # 自定义导航栏高度
-  custom_dir: overrides  # 后续可加导航栏自定义（先配置）
+
+# ========== 你的自定义CSS（深蓝导航样式），不变 ==========
+extra_css:
+  - stylesheets/extra.css
+
+# ========== markdown扩展，不变 ==========
+markdown_extensions:
+  - pymdownx.highlight:
+      anchor_linenums: true
+      line_spans: __span
+      pygments_lang_class: true
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+
+# ========== 中文搜索插件，不变 ==========
+plugins:
+  - search:
+      lang: zh
