@@ -4,8 +4,9 @@
 <div class="profile-card">
   <div class="profile-info">
     <h2>关于我</h2>
-    <p>正在学习各种计算机知识的编程小白</p>
-    <p>日常：敲代码 | 刷题 | 写博客</p>
+    <p>还在学习各种计算机知识的小白？</p>
+    <p>C++| 敲代码 | 刷题 | 写博客</p>
+    <p>目前只存放了一些和算法相关的内容<p>
     <p>这里各种意义上还在施工中,会努力更新的（大概）<p>
   </div>
   <div class="profile-links">
