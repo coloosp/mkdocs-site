@@ -58,7 +58,7 @@ int main() {
 
 这是我们构建的二叉树，让我们看看先序遍历是怎么搜索它的吧！
 
-![alt text](image-1.png)
+![alt text](image1.png)
 画这样一张图挺累人的，不过这确实是先序遍历的工作流程。我需要这样说明
 * **压入函数**：在主函数调用先序函数时或者在先序函数中调用先序函数时
 * **弹出函数**：函数处理空节点返回或者函数执行结束（因为是void类型）
@@ -366,7 +366,7 @@ void hanoi(int n,char from,char mid,char to) {
         return;
     }
 
-    hanoi(n - 1, from, mid, to);//步骤一，将n-1层汉诺塔从A柱移动到B柱，借助C柱辅助
+    hanoi(n - 1, from, to, mid);//步骤一，将n-1层汉诺塔从A柱移动到B柱，借助C柱辅助
 
     cout << "将第" << n << "层圆盘从 " << from << " 柱移动到 " << to << " 柱" << endl;//步骤二，将第n层汉诺塔从A柱移动到C柱，借助B柱辅助
 
@@ -432,9 +432,9 @@ void hanoiTowerIterative(int n, char from, char mid, char to) {
             cout << "将第" << curN << "层圆盘从 " << curFrom << " 柱移动到 " << curTo << " 柱" << endl;
             continue;
         }
-        HanoiTask task1(curN - 1, curMid, curFrom, curTo, false);
+        HanoiTask task1(curN - 1, curFrom, curTo, curMid, false);
         HanoiTask task2(curN, curFrom, curMid, curTo, true);
-        HanoiTask task3(curN - 1, curFrom, curTo, curMid, false);
+        HanoiTask task3(curN - 1, curMid, curFrom, curTo, false);
 
         //为了让任务一在栈顶，我们逆序压入栈中
         taskStack.push(task3);//任务三，将n-1层汉诺塔从B柱移动到C柱，借助A柱辅助
@@ -469,7 +469,7 @@ typedef struct TreeNode {
     TreeNode* right;
     bool isExecuted;
     // 构造函数
-    TreeNode(int x) : val(x), left(NULL), right(NULL),isExecuted(false) {}
+    TreeNode(int x) : val(x), left(NULL), right(NULL), isExecuted(false) {}
     //构造函数
     TreeNode(int val_, TreeNode* left_, TreeNode* right_, bool isExecuted_)
         : val(val_), left(left_), right(right_), isExecuted(isExecuted_) {}
@@ -487,26 +487,28 @@ int main() {
     stack <TreeNode*> S;
     S.push(root);
     while (!S.empty()) {
-        TreeNode* node=S.top();
+        TreeNode* node = S.top();
         S.pop();
         if (node->isExecuted) { //单层逻辑
             cout << node->val << " ";
             continue;
         }
         //我们需要逆向加入栈中，也就是根，右，左的顺序
-        TreeNode* node1=new TreeNode(node->val, node->left, node->right, true);//中，但是修改isExecuted
+        TreeNode* node1 = node;
+        node1->isExecuted = true;//修改isExecuted
         S.push(node1);//加入根
         if (node->right) {
-            TreeNode* node2 = new TreeNode(node->right->val, node->right->left, node->right->right, false);
+            TreeNode* node2 = node1->right;
             S.push(node2);//加入右节点
         }
         if (node->left) {
-            TreeNode* node3 = new TreeNode(node->left->val, node->left->left, node->left->right, false);
+            TreeNode* node3 = node1->left;
             S.push(node3);//加入左节点
         }
     }
 
 }
+
 ```
 ## 深度优先搜索
 相信各位如果学过数据结构与图论的话，深搜优先搜索一定不陌生，深搜也就是一条路走到底，搜索到无法搜索为止，不过大家如果只是完成数据结构课本上的知识对于图的构造以及数据输入输出可能会不太熟悉，我们在练习中完成吧！
@@ -540,7 +542,7 @@ void dfs(MGraph &G, int n, int m,int x,int y) {
 		int cur_x = x + dir[i][0];
 		int cur_y = y + dir[i][1];
 		if ((cur_x <= 0 || cur_x > n) || (cur_y <= 0 || cur_y > m))
-			continue;//搜索超界
+			continue;//搜索超界,注意最先确保不超界
 		if (visited[cur_x][cur_y] == 1)
 			continue;//已被搜索过
 		if (G.edge[cur_x][cur_y] == 0)
@@ -595,10 +597,10 @@ int main() {
 本题实际上属于图论题目，希望大家认真理解题目后想起我们熟悉的另一种存储图的结构——临接表
 
 稍微试着将看起来不像是图的题目转化为图吧
-![alt text](image-2.png)
+![alt text](image2.png)
 
 
-![alt text](image-3.png)
+![alt text](image3.png)
 
 实际上转化为了在图中的最短路径问题，各位在学习图论时一定学习了不少最短路问题的解决方法，比如迪杰斯特拉或者floyd，在无权图中当然也可以使用广度优先搜索来实现，本质上深搜也可以实现这个过程，因为深搜本质就是探索每一段路径
 
@@ -644,19 +646,23 @@ int visited[MaxVex];//标记数组
 int minstep = 205;
 
 void dfs(ALGraph& G, int s, int t,int step) {
-	visited[s] = 1;
 
-	if (step < mindist[s]) {
+    if (step < mindist[s]) {
 		mindist[s] = step;
 	}
 	else {
 		return;
 	}//更新与剪枝
+	
+	visited[s] = 1;
+
+
 
 	if (s == t) {
 		if (step < minstep) {
 			minstep = step;
 		}
+		visited[s] = 0;//返回前恢复
 		return;
 	}
 
@@ -664,9 +670,9 @@ void dfs(ALGraph& G, int s, int t,int step) {
 		int w = p->adjvex;
 		if (visited[w] == 0) {
 			dfs(G, w, t, step + 1);
-			visited[w] = 0;
 		}
 	}
+	visited[s] = 0;//恢复
 }
 
 
@@ -766,7 +772,7 @@ return 0;
 }
 ```
 
-各位也可以实现一下广搜与迪杰斯特拉算法
+各位也可以实现一下广搜与迪杰斯特拉算法，这道题的回溯写法各位还比较陌生，抱歉作者只是想找一道和临接矩阵相对的临接表的题目，下面的代码固然简洁，但需要更强的代码能力才能写出来，不要担心，我们马上开始回溯的章节
 
 ## 回溯
 说实话作者也只是普通大学生，我不知道怎么很好地解释回溯到底是什么，或者回溯到底有什么作用。回溯就是暴搜，是的，比如我们要实现力扣第一题两数之和，最简单的方法就是写两个for循环，不过更多的情况是这个题有n个for循环，甚至我们都不知道有几个for循环什么时候结束，这时候回溯可能就能排上用场，作者的理解是回溯就是递归函数参数变化与退回的过程，功能是实现暴力搜索所有路径
@@ -1002,7 +1008,7 @@ void backtracking(参数) {
 
 啊啊我不想画图描述，不过看来没有办法了
 
-![alt text](image-4.png)
+![alt text](image4.png)
 
 应该说明的是回溯的搜索结构就是树状结构，而且应该是n叉树！你可以回忆一下二叉树的前序遍历，那里我们并没有用for循环，但原理是一样的，我们遍历了左子树和右子树，这里我们需要遍历的是一个节点的n叉孩子，或许可以这样理解。
 
@@ -1286,5 +1292,4 @@ int main() {
                                                            
 完成于2026-1-05
 coloop
-
 

@@ -1,35 +1,23 @@
-site_name: Coloop的个人博客
-nav:
-  - 首页: index.md
-  - 技术文章:
-    - 回溯杂谈: articles/backtrack.md
 theme:
   name: material
-  # 核心：导航栏用深蓝色，内容区浅白
+  # 强制导航栏为深蓝色（覆盖默认样式）
   palette:
-    - scheme: default
-      primary: indigo # 深蓝色主色调（和参考站一致）
-      accent: blue
+    - scheme: slate  # 用slate的深色框架，但自定义主色
+      primary: blue  # 深蓝色主色
+      accent: light blue
       toggle:
         icon: material/weather-sunny
-        name: 切换到暗色模式
+        name: 切换到亮色模式
+  # 开启导航栏固定+完整宽度
   features:
     - content.code.copy
     - navigation.tabs
     - navigation.sections
     - navigation.top
     - toc.follow
+    - header.fixed  # 导航栏固定在顶部
+    - header.autohide # 滚动时自动隐藏（可选）
   icon:
     repo: fontawesome/brands/github
-extra_css:
-  - stylesheets/extra.css
-markdown_extensions:
-  - pymdownx.highlight:
-      anchor_linenums: true
-      line_spans: __span
-      pygments_lang_class: true
-  - pymdownx.inlinehilite
-  - pymdownx.snippets
-plugins:
-  - search:
-      lang: zh
+  # 自定义导航栏高度
+  custom_dir: overrides  # 后续可加导航栏自定义（先配置）
