@@ -1,19 +1,38 @@
-# 这里是Coloop，你可以叫我彩泡泡O(∩_∩)O
-
-<img src="images/avatar.jpg" alt="Coloop的头像" class="avatar">
-<div class="profile-card">
-  <div class="profile-info">
-    <h2>关于我</h2>
-    <p>还在学习各种计算机知识的小白？</p>
-    <p>C++| 敲代码 | 刷题 | 写博客</p>
-    <p>目前只存放了一些和算法相关的内容<p>
-    <p>这里各种意义上还在施工中,会努力更新的（大概）<p>
-  </div>
-  <div class="profile-links">
-    <a href="https://github.com/coloosp" target="_blank" class="btn btn-secondary">⭐ 我的GitHub</a>
-  </div>
+<!-- 头像和昵称 -->
+<div style="text-align: center; margin-bottom: 2rem;">
+  <img src="images/avatar.jpg" alt="头像" style="width: 100px; height: 100px; border-radius: 50%;">
+  <h2>Coloop（彩泡泡）</h2>
+  <p>还在学习的编程爱好者</p>
 </div>
 
+---
 
+### 关于我
 
+- 日常：C++ 学习、写点小项目、刷算法题
+- 想法：总之实现一点有趣的东西
 
+---
+
+### 我的项目
+
+#### 协程库 (fiber-lib)
+- 基于 C++ 实现的轻量级协程框架
+- 包含线程、协程、调度器、定时器、IO管理等模块
+- 已完成性能测试和压力验证
+- [GitHub 地址](https://github.com/coloosp/fiber-lib)
+
+#### 缓存系统 (CpCache)
+- 实现了 LRU、LFU、ARC 等经典缓存替换算法
+- 包含功能测试和编译运行说明
+- 作为学习缓存策略的练手项目
+- [GitHub 地址](https://github.com/coloosp/CpCache)
+
+---
+
+### 联系我
+- bilibili:[bilibili.com/夏日制冰器](https://space.bilibili.com/85760889?spm_id_from=333.1007.0.0)
+- QQ号: 1336990381
+- GitHub: [github.com/coloosp](https://github.com/coloosp)
+- 力扣： [leetcode.com/coloop](https://leetcode.cn/u/daz2ling-germainjxb/)
+- 来完成有趣的事情吧~😚

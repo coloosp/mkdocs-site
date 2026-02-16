@@ -93,16 +93,29 @@ nav:
     - 算法杂谈:
       - 回溯杂谈: 算法杂谈/backtrack.md
     - 缓存系统:
-      - 项目简介: CpCache/项目简介.md
-      - LRU算法朴素实现: CpCache/LRU算法朴素实现.md
-      - 额外知识: CpCache/额外知识.md
-      - 缓存策略: CpCache/缓存策略.md
-      - LRU算法: CpCache/LRU算法.md
-      - LFU算法: CpCache/LFU算法.md
-      - ARC算法: CpCache/ARC算法.md
-      - 功能测试: CpCache/功能测试.md
-      - 编译运行: CpCache/编译运行.md
-      - 一些尾声: CpCache/一些尾声.md
+        - 项目简介: CpCache/项目简介.md
+        - LRU算法朴素实现: CpCache/LRU算法朴素实现.md
+        - 额外知识: CpCache/额外知识.md
+        - 缓存策略: CpCache/缓存策略.md
+        - LRU算法: CpCache/LRU算法.md
+        - LFU算法: CpCache/LFU算法.md
+        - ARC算法: CpCache/ARC算法.md
+        - 功能测试: CpCache/功能测试.md
+        - 编译运行: CpCache/编译运行.md
+        - 一些尾声: CpCache/一些尾声.md
+    - 协程库:
+        - 故事开始: fiber-lib/故事开始.md
+        - 知识积累: fiber-lib/知识积累.md
+        - Thread: fiber-lib/1Thread.md
+        - Fiber: fiber-lib/2Fiber.md
+        - Scheduler: fiber-lib/3Scheduler.md
+        - Timer: fiber-lib/4Timer.md
+        - iomanager: fiber-lib/5iomanager.md
+        - epoll: fiber-lib/epoll.md
+        - FdManager: fiber-lib/FdManager.md
+        - hook: fiber-lib/6hook.md
+        - 性能测试: fiber-lib/性能测试.md
+        - 故事完结: fiber-lib/故事完结.md
 
 # 主题配置
 theme:
