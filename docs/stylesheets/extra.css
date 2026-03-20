@@ -180,3 +180,35 @@
 	display: block;
 	border: 1px solid #dee2e6;
 }
+
+/* 仅适配移动端（屏幕宽度<768px），解决排版错乱 */
+@media (max-width: 768px) {
+  /* 1. 适配移动端导航+标签栏高度，避免内容遮挡 */
+  .md-main {
+    margin-top: 90px !important; /* 移动端降低内容区上边距 */
+    padding: 1rem !important;    /* 减少移动端内边距，避免内容溢出 */
+    max-width: 100% !important;  /* 移动端内容区铺满屏幕，取消宽度限制 */
+  }
+
+  /* 2. 缩小移动端个人卡片/头像，避免挤压 */
+  .profile-card {
+    padding: 1.5rem 1rem !important; /* 减少卡片内边距 */
+  }
+  .avatar {
+    width: 80px !important;   /* 移动端缩小头像 */
+    height: 80px !important;
+  }
+
+  /* 3. 适配移动端标签栏文字，避免换行/溢出 */
+  .md-tabs__link {
+    font-size: 0.8rem !important; /* 缩小标签文字 */
+    padding: 0.5rem 0.7rem !important; /* 减少标签内边距 */
+  }
+
+  /* 4. 移动端按钮适配，避免超出屏幕 */
+  .btn {
+    padding: 0.5rem 1rem !important; /* 缩小按钮内边距 */
+    font-size: 0.9rem !important;    /* 缩小按钮文字 */
+    margin-right: 0.5rem !important;
+  }
+}
