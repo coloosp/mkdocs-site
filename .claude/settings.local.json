@@ -1,0 +1,9 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(git init *)",
+      "Bash(git remote *)",
+      "Bash(du -sh --exclude=zelda-hyrule-ui-main --exclude=site --exclude=音乐合集 --exclude=.git .)"
+    ]
+  }
+}
