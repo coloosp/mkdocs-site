@@ -1,0 +1,666 @@
+/* ============================================================
+   Coloop 博客 — BOTW 希卡之石主题 v3
+   从 zelda-hyrule-ui showcase 提取的组件 + CSS 设计 token
+   设计来源: Zelda BOTW UI Kit by Hunter Paramore (CC BY 4.0)
+   ============================================================ */
+
+/* ---------- 0. 字体 ---------- */
+@font-face {
+  font-family: 'Hylia Serif';
+  src: url('fonts/HyliaSerif.ttf') format('truetype');
+  font-weight: 400; font-style: normal; font-display: swap;
+}
+
+/* ---------- 1. 核心 CSS 变量 ---------- */
+:root {
+  --bg-sheikah-panel: #0a1628;
+  --bg-card: rgba(0, 0, 0, 0.6);
+  --text-main: #E9E1D1;
+  --text-muted: rgba(233, 225, 209, 0.6);
+  --zelda-tan: #E2DED3;
+  --sheikah-blue: #3CD3FC;
+  --sheikah-glow: #4FC0FF;
+  --focus-green: #13FF59;
+  --low-red: #F15050;
+  --border-inner: rgba(226, 222, 211, 0.3);
+  --font-title: 'Hylia Serif', 'Cinzel', Georgia, serif;
+  --font-body: 'Roboto', -apple-system, 'PingFang SC', 'Microsoft YaHei', sans-serif;
+  --ease: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* ---------- 2. 全局 ---------- */
+.md-typeset { font-style: italic; }
+
+/* 夜间：zelda 官方希卡纹理（SheikahBackground 同款） */
+[data-md-color-scheme="slate"] {
+  background-image: url('img/sheikah-bg-dark.png');
+  background-size: cover;
+  background-position: top left;
+  background-attachment: fixed;
+}
+
+/* ---------- 3. 导航栏 ---------- */
+.md-header {
+  background: rgba(10, 20, 40, 0.92);
+  border-bottom: 1px solid rgba(60, 211, 252, 0.3);
+  box-shadow: 0 0 14px rgba(60, 211, 252, 0.1);
+  backdrop-filter: blur(8px);
+}
+
+.md-header__topic {
+  font-family: var(--font-title);
+  font-weight: 400; font-style: normal;
+  letter-spacing: 0.04em;
+  text-shadow: 0 0 12px rgba(60, 211, 252, 0.3);
+}
+
+.md-tabs {
+  background: rgba(10, 20, 40, 0.85);
+  border-bottom: 1px solid rgba(60, 211, 252, 0.15);
+  backdrop-filter: blur(8px);
+}
+
+.md-tabs__link {
+  transition: color 0.2s var(--ease), text-shadow 0.2s var(--ease);
+}
+
+.md-tabs__link--active,
+.md-tabs__link:hover {
+  text-shadow: 0 0 8px rgba(60, 211, 252, 0.5);
+}
+
+/* ---------- 4. 标题 ---------- */
+.md-typeset h1 {
+  font-family: var(--font-title);
+  font-weight: 400; font-style: normal;
+  letter-spacing: 0.04em;
+  text-shadow: 0 0 18px rgba(60, 211, 252, 0.3);
+}
+
+.md-typeset h2 {
+  font-family: var(--font-title);
+  font-weight: 400; font-style: normal;
+  letter-spacing: 0.03em;
+  text-shadow: 0 0 8px rgba(60, 211, 252, 0.2);
+}
+
+.md-typeset h3 {
+  font-family: var(--font-title);
+  font-weight: 400; font-style: normal;
+  letter-spacing: 0.02em;
+}
+
+.md-nav__title {
+  font-family: var(--font-title);
+  font-weight: 400; font-style: normal;
+}
+
+/* ---------- 5. 分隔线 — 希卡蓝渐变 ---------- */
+.md-typeset hr {
+  border: none; height: 1px;
+  background: linear-gradient(90deg,
+    transparent, rgba(60,211,252,0.3),
+    rgba(60,211,252,0.6), rgba(60,211,252,0.3), transparent);
+  margin: 2rem 0;
+}
+
+/* ---------- 6. 代码块 — 希卡面板 + 双层边框 ---------- */
+.md-typeset pre > code {
+  background: var(--bg-sheikah-panel);
+  border: 1px solid rgba(60, 211, 252, 0.3);
+  border-radius: 4px;
+  position: relative;
+}
+.md-typeset pre > code::after {
+  content: ''; position: absolute; inset: 3px;
+  border: 1px solid rgba(226, 222, 211, 0.15);
+  border-radius: 2px; pointer-events: none;
+}
+.md-typeset code {
+  background: rgba(10, 20, 40, 0.6);
+  border: 1px solid rgba(60, 211, 252, 0.2);
+  border-radius: 2px;
+}
+
+/* ---------- 7. 表格 ---------- */
+.md-typeset table th {
+  font-family: var(--font-title);
+  font-weight: 400; font-style: normal;
+}
+
+/* ---------- 8. 引用块 — 对话风格 ---------- */
+.md-typeset blockquote {
+  background: var(--bg-card);
+  border-left: 3px solid var(--sheikah-blue);
+  padding: 0.8rem 1.2rem;
+  position: relative;
+}
+.md-typeset blockquote::after {
+  content: ''; position: absolute; inset: 3px;
+  border: 1px solid var(--border-inner);
+  border-radius: 2px; pointer-events: none;
+}
+
+/* ---------- 9. 链接 hover 辉光 ---------- */
+.md-typeset a:hover {
+  text-shadow: 0 0 6px rgba(60, 211, 252, 0.5);
+}
+
+/* ---------- 10. 扫描线动画（页面叠加） ---------- */
+.md-container::after {
+  content: ''; position: fixed; inset: 0;
+  pointer-events: none; z-index: 0;
+  mix-blend-mode: overlay;
+  background: repeating-linear-gradient(
+    0deg, transparent, transparent 1px,
+    rgba(60,211,252,0.02) 1px, rgba(60,211,252,0.02) 2px);
+  filter: blur(0.5px);
+  animation: scan-move 8s linear infinite;
+}
+@keyframes scan-move {
+  0% { background-position: 0 0; }
+  100% { background-position: 0 200px; }
+}
+
+/* ============ 🧩 可复用 BOTW 组件 ============ */
+
+/* --- Sheikah Slate 容器 --- */
+.sheikah-slate {
+  position: relative;
+  background: var(--bg-sheikah-panel);
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 0 40px rgba(0,0,0,0.5);
+  margin: 2rem 0;
+}
+.sheikah-slate::after {
+  content: ''; position: absolute; inset: 3px;
+  border: 1px solid rgba(60, 211, 252, 0.4);
+  border-radius: 6px; pointer-events: none; z-index: 1;
+}
+.sheikah-slate > * { position: relative; z-index: 2; }
+
+/* --- Sheikah 卡片（双层边框） --- */
+.sheikah-card {
+  position: relative;
+  background: var(--bg-card);
+  border-radius: 4px;
+  padding: 1.5rem;
+  margin: 1.5rem 0;
+}
+.sheikah-card::after {
+  content: ''; position: absolute; inset: 3px;
+  border: 1px solid var(--border-inner);
+  border-radius: 2px; pointer-events: none;
+  transition: border-color 0.2s var(--ease);
+}
+.sheikah-card:hover::after {
+  border-color: rgba(226, 222, 211, 0.5);
+}
+.sheikah-card.selected {
+  box-shadow: inset 0 0 7px 3px rgba(246,231,152,0.3),
+              0 0 12px 1px rgba(227,227,200,0.5);
+}
+.sheikah-card.selected::after { border-color: var(--zelda-tan); }
+
+/* --- Sheikah 按钮 --- */
+.sheikah-btn {
+  display: inline-flex; align-items: center; justify-content: center;
+  min-width: 100px;
+  padding: 10px 22px;
+  background: var(--bg-card);
+  color: var(--text-main);
+  font-family: var(--font-body);
+  font-size: 13px; font-weight: 700; font-style: italic;
+  letter-spacing: 0.08em;
+  border: none; border-radius: 4px;
+  cursor: pointer; text-decoration: none;
+  position: relative;
+  transition: box-shadow 0.2s var(--ease);
+}
+.sheikah-btn::after {
+  content: ''; position: absolute; inset: 3px;
+  border: 1px solid rgba(60,211,252,0.5);
+  border-radius: 2px; pointer-events: none;
+  transition: border-color 0.2s var(--ease);
+}
+.sheikah-btn:hover {
+  box-shadow: 0 0 14px rgba(79,192,255,0.6);
+  color: var(--text-main);
+}
+.sheikah-btn:hover::after { border-color: var(--sheikah-blue); }
+
+.sheikah-btn.golden::after { border-color: rgba(252,196,19,0.5); }
+.sheikah-btn.golden:hover {
+  box-shadow: 0 0 6px #FFB800, 0 0 10px #FFDB7E;
+}
+
+.sheikah-btn.danger::after { border-color: rgba(241,50,47,0.5); }
+.sheikah-btn.danger:hover {
+  box-shadow: 0 0 12px rgba(241,50,47,0.5);
+}
+
+/* --- Sheikah HUD 数据展示 --- */
+.sheikah-hud {
+  display: flex; align-items: flex-start; gap: 24px;
+  flex-wrap: wrap; font-style: normal;
+}
+.sheikah-hud-item {
+  display: flex; flex-direction: column; align-items: center; gap: 3px;
+}
+.sheikah-hud-value {
+  font-family: var(--font-title); font-style: normal;
+  font-size: 22px; color: var(--zelda-tan); line-height: 1;
+  display: flex; align-items: center; gap: 5px;
+}
+.sheikah-hud-label {
+  font-size: 9px; color: var(--text-muted);
+  letter-spacing: 0.12em; text-transform: uppercase;
+}
+
+/* --- Sheikah 进度条 / 心之容器 --- */
+.sheikah-progress {
+  position: relative;
+  background: var(--bg-card);
+  border-radius: 4px;
+  padding: 14px 18px;
+  margin: 1.2rem 0;
+}
+.sheikah-progress::after {
+  content: ''; position: absolute; inset: 3px;
+  border: 1px solid var(--border-inner);
+  border-radius: 2px; pointer-events: none;
+}
+.sheikah-progress .row {
+  display: flex; align-items: center; justify-content: center; gap: 10px;
+}
+.sheikah-progress .label {
+  font-size: 10.5px; font-style: normal;
+  color: var(--text-muted); letter-spacing: 0.05em;
+  text-align: center; margin-top: 7px;
+}
+
+/* --- 希卡之眼水印 --- */
+.sheikah-eye-watermark {
+  position: absolute;
+  right: -60px; bottom: -80px;
+  width: 260px;
+  opacity: 0.04;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* --- 装饰分隔线 — 希卡之眼居中 --- */
+.sheikah-divider {
+  display: flex; align-items: center; justify-content: center;
+  margin: 2.5rem 0; gap: 14px;
+}
+.sheikah-divider .line {
+  flex: 1; height: 1px;
+  background: linear-gradient(90deg,
+    transparent, rgba(60,211,252,0.3), rgba(60,211,252,0.5));
+}
+.sheikah-divider .ornament {
+  width: 30px; height: 24px;
+  filter: drop-shadow(0 0 8px rgba(60,211,252,0.5));
+  animation: ornament-pulse 3s ease-in-out infinite;
+}
+@keyframes ornament-pulse {
+  0%, 100% { filter: drop-shadow(0 0 6px rgba(60,211,252,0.4)); }
+  50% { filter: drop-shadow(0 0 12px rgba(60,211,252,0.7)); }
+}
+
+/* --- 卡片角落装饰 --- */
+.sheikah-card {
+  overflow: hidden;
+}
+.sheikah-card .card-corner {
+  position: absolute; width: 18px; height: 18px;
+  filter: drop-shadow(0 0 4px rgba(60,211,252,0.4));
+  pointer-events: none; z-index: 3;
+}
+.sheikah-card .card-corner.tl { top: 6px; left: 6px; }
+.sheikah-card .card-corner.tr { top: 6px; right: 6px; transform: scaleX(-1); }
+.sheikah-card .card-corner.br { bottom: 6px; right: 6px; transform: scale(-1); }
+.sheikah-card .card-corner.bl { bottom: 6px; left: 6px; transform: scaleY(-1); }
+
+/* --- 标题装饰 — 左右花纹 --- */
+.title-ornamented {
+  display: flex; align-items: center; gap: 10px;
+}
+.title-ornamented .to-left,
+.title-ornamented .to-right {
+  width: 40px; height: 12px; flex: none;
+  filter: drop-shadow(0 0 4px rgba(60,211,252,0.4));
+}
+.title-ornamented .to-right { transform: scaleX(-1); }
+
+/* --- 心之容器点缀 — footer 或 sidebar --- */
+.hearts-row {
+  display: flex; gap: 4px; align-items: center;
+}
+.hearts-row svg {
+  width: 16px; height: 13px;
+  filter: drop-shadow(0 0 4px rgba(241,54,47,0.5));
+}
+
+/* --- 辉光脉冲动画（可用于按钮等） --- */
+@keyframes glow-pulse {
+  0%, 100% { box-shadow: 0 0 8px rgba(60,211,252,0.4); }
+  50% { box-shadow: 0 0 16px rgba(60,211,252,0.7); }
+}
+
+/* --- 卡片 hover 微动效果 --- */
+.sheikah-card {
+  transition: transform 0.25s var(--ease), box-shadow 0.25s var(--ease);
+}
+.sheikah-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 16px rgba(0,0,0,0.3);
+}
+
+/* --- Rune 标签 --- */
+.sheikah-rune {
+  display: inline-flex; align-items: center; gap: 5px;
+  font-family: var(--font-title); font-style: normal;
+  font-size: 11px; letter-spacing: 0.1em;
+  color: var(--sheikah-blue);
+  text-shadow: 0 0 6px rgba(60,211,252,0.5);
+}
+
+/* --- 首页 profile --- */
+.profile-card {
+  display: flex; flex-direction: column; gap: 1.5rem;
+  padding: 2rem;
+  background: var(--bg-card);
+  border-radius: 4px;
+  margin: 2rem 0;
+  align-items: center;
+  position: relative;
+}
+.profile-card::after {
+  content: ''; position: absolute; inset: 3px;
+  border: 1px solid var(--border-inner);
+  border-radius: 2px; pointer-events: none;
+}
+.avatar {
+  width: 120px; height: 120px; border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid rgba(60,211,252,0.4);
+  box-shadow: 0 0 10px rgba(60,211,252,0.2);
+  margin-bottom: 0.5rem;
+}
+.profile-info { text-align: center; width: 100%; }
+.profile-info h2 {
+  font-family: var(--font-title); font-weight: 400; font-style: normal;
+  margin-bottom: 0.8rem; font-size: 1.8rem; border-bottom: none;
+  text-shadow: 0 0 14px rgba(60,211,252,0.25);
+}
+.profile-info p { line-height: 1.7; font-size: 1rem; margin: 0.3rem 0; }
+
+/* --- 旧 btn 类兼容 --- */
+.btn {
+  display: inline-block; padding: 0.6rem 1.4rem;
+  background: var(--bg-card); color: var(--sheikah-blue);
+  text-decoration: none; border-radius: 4px;
+  border: 1px solid rgba(60,211,252,0.3);
+  font-weight: 500; font-style: italic;
+  margin-right: 0.8rem; margin-bottom: 0.8rem;
+  transition: all 0.2s var(--ease); position: relative;
+}
+.btn::after {
+  content: ''; position: absolute; inset: 2px;
+  border: 1px solid rgba(226,222,211,0.15);
+  border-radius: 2px; pointer-events: none;
+}
+.btn:hover {
+  border-color: var(--sheikah-blue);
+  box-shadow: 0 0 10px rgba(79,192,255,0.5); color: var(--sheikah-blue);
+}
+.btn-secondary { border-color: rgba(252,196,19,0.4); color: #FCC413; }
+.btn-secondary:hover {
+  box-shadow: 0 0 6px #FFB800, 0 0 10px #FFDB7E;
+}
+
+/* --- 文章配图 --- */
+.article-img {
+  max-width: 90%; border-radius: 4px;
+  box-shadow: 0 0 12px rgba(0,0,0,0.5);
+  margin: 2rem auto; display: block;
+  border: 1px solid rgba(226,222,211,0.2);
+}
+
+/* --- 页脚 --- */
+.md-footer {
+  position: relative;
+  border-top: 1px solid rgba(60,211,252,0.2);
+}
+
+/* --- 滚动条 --- */
+::-webkit-scrollbar { width: 8px; }
+::-webkit-scrollbar-thumb {
+  background: rgba(60,211,252,0.25); border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover { background: rgba(60,211,252,0.45); }
+
+/* ============================================================ */
+/*  🌙 夜间模式变量覆盖（slate 方案使用这些暗色值）              */
+/* ============================================================ */
+[data-md-color-scheme="slate"] {
+  --bg-sheikah-panel: #0a1628;
+  --bg-card: rgba(0, 0, 0, 0.6);
+  --text-main: #E9E1D1;
+  --text-muted: rgba(233, 225, 209, 0.6);
+  --zelda-tan: #E2DED3;
+  --border-inner: rgba(226, 222, 211, 0.3);
+  --btn-bg: rgba(0, 0, 0, 0.6);
+  --btn-color: #3CD3FC;
+  --card-bg: rgba(0, 0, 0, 0.6);
+  --slate-bg: #0a1628;
+}
+
+/* ============================================================ */
+/*  ☀️ 日间模式 — BOTW 暖羊皮纸主题                              */
+/* ============================================================ */
+[data-md-color-scheme="default"] {
+  --bg-sheikah-panel: #f5f0e8;
+  --bg-card: rgba(255, 255, 255, 0.85);
+  --text-main: #2c2416;
+  --text-muted: rgba(44, 36, 22, 0.55);
+  --zelda-tan: #8B7355;
+  --border-inner: rgba(139, 115, 85, 0.25);
+  --btn-bg: #ffffff;
+  --btn-color: #0d7eb7;
+  --card-bg: rgba(255, 255, 255, 0.85);
+  --slate-bg: #f5f0e8;
+}
+
+/* 日间：柔和的暖羊皮纸背景 — 整体降暗不刺眼 */
+[data-md-color-scheme="default"] body {
+  background: #ede4d3;
+}
+
+/* 日间：内容区也柔化，避免白底刺眼 */
+[data-md-color-scheme="default"] .md-main {
+  background: transparent;
+}
+[data-md-color-scheme="default"] .md-main__inner {
+  background: rgba(255, 252, 247, 0.7);
+  border-radius: 6px;
+  padding: 2rem;
+  box-shadow: 0 1px 6px rgba(0,0,0,0.04);
+}
+
+/* 日间：关闭扫描线 */
+[data-md-color-scheme="default"] .md-container::after {
+  display: none;
+}
+
+/* 日间：导航栏 — 暖米色 + 希卡蓝底线 */
+[data-md-color-scheme="default"] .md-header {
+  background: rgba(245, 240, 232, 0.95);
+  border-bottom: 1px solid rgba(60, 211, 252, 0.25);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.06);
+  backdrop-filter: blur(8px);
+}
+[data-md-color-scheme="default"] .md-header__topic {
+  color: #2c2416;
+  text-shadow: none;
+}
+[data-md-color-scheme="default"] .md-header__title,
+[data-md-color-scheme="default"] .md-header__button {
+  color: #2c2416;
+}
+[data-md-color-scheme="default"] .md-header__button:hover {
+  color: #0d7eb7;
+}
+[data-md-color-scheme="default"] .md-tabs {
+  background: rgba(245, 240, 232, 0.9);
+  border-bottom: 1px solid rgba(60, 211, 252, 0.15);
+}
+[data-md-color-scheme="default"] .md-tabs__link {
+  color: rgba(44, 36, 22, 0.7);
+}
+[data-md-color-scheme="default"] .md-tabs__link--active,
+[data-md-color-scheme="default"] .md-tabs__link:hover {
+  color: #0d7eb7;
+  text-shadow: none;
+}
+[data-md-color-scheme="default"] .md-search__input {
+  color: #2c2416;
+  background: rgba(0, 0, 0, 0.04);
+  border-color: rgba(139, 115, 85, 0.2);
+}
+[data-md-color-scheme="default"] .md-search__input::placeholder {
+  color: rgba(44, 36, 22, 0.4);
+}
+
+/* 日间：标题去掉辉光 */
+[data-md-color-scheme="default"] .md-typeset h1,
+[data-md-color-scheme="default"] .md-typeset h2 {
+  text-shadow: none;
+}
+
+/* 日间：Sheikah Slate — 浅色面板 */
+[data-md-color-scheme="default"] .sheikah-slate {
+  background: var(--slate-bg);
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+}
+[data-md-color-scheme="default"] .sheikah-slate::after {
+  border-color: rgba(60, 211, 252, 0.3);
+}
+[data-md-color-scheme="default"] .sheikah-eye-watermark {
+  opacity: 0.06;
+}
+
+/* 日间：Sheikah 卡片 */
+[data-md-color-scheme="default"] .sheikah-card,
+[data-md-color-scheme="default"] .profile-card,
+[data-md-color-scheme="default"] .sheikah-progress {
+  background: var(--card-bg);
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.06);
+}
+[data-md-color-scheme="default"] .sheikah-card::after,
+[data-md-color-scheme="default"] .profile-card::after,
+[data-md-color-scheme="default"] .sheikah-progress::after {
+  border-color: rgba(139, 115, 85, 0.25);
+}
+
+/* 日间：按钮 */
+[data-md-color-scheme="default"] .sheikah-btn,
+[data-md-color-scheme="default"] .btn {
+  background: var(--btn-bg);
+  color: var(--btn-color);
+  border-color: rgba(13, 126, 183, 0.3);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06);
+}
+[data-md-color-scheme="default"] .btn::after {
+  border-color: rgba(139, 115, 85, 0.15);
+}
+[data-md-color-scheme="default"] .btn:hover,
+[data-md-color-scheme="default"] .sheikah-btn:hover {
+  box-shadow: 0 0 8px rgba(13, 126, 183, 0.3);
+}
+
+/* 日间：代码块 */
+[data-md-color-scheme="default"] .md-typeset pre > code {
+  background: #f8f6f1;
+  border-color: rgba(139, 115, 85, 0.2);
+}
+[data-md-color-scheme="default"] .md-typeset code {
+  background: rgba(139, 115, 85, 0.08);
+  border-color: rgba(139, 115, 85, 0.2);
+}
+
+/* 日间：引用块 */
+[data-md-color-scheme="default"] blockquote {
+  background: rgba(139, 115, 85, 0.06);
+}
+
+/* 日间：滚动条 */
+[data-md-color-scheme="default"] ::-webkit-scrollbar-thumb {
+  background: rgba(139, 115, 85, 0.3);
+}
+
+/* 日间：链接 */
+[data-md-color-scheme="default"] .md-typeset a:hover {
+  text-shadow: none;
+}
+[data-md-color-scheme="default"] .md-typeset a {
+  color: #0d7eb7;
+}
+
+/* 日间：HUD */
+[data-md-color-scheme="default"] .sheikah-hud-value {
+  color: #8B7355;
+}
+[data-md-color-scheme="default"] .sheikah-hud-label {
+  color: rgba(44, 36, 22, 0.5);
+}
+
+/* 日间：Rune */
+[data-md-color-scheme="default"] .sheikah-rune {
+  color: #0d7eb7;
+  text-shadow: none;
+}
+
+/* 日间：分隔线 */
+[data-md-color-scheme="default"] .md-typeset hr {
+  background: linear-gradient(90deg,
+    transparent, rgba(139, 115, 85, 0.3),
+    rgba(139, 115, 85, 0.5), rgba(139, 115, 85, 0.3), transparent);
+}
+
+/* 日间：按钮金色变体 */
+[data-md-color-scheme="default"] .btn-secondary {
+  border-color: rgba(180, 130, 20, 0.4);
+  color: #8B6914;
+}
+
+/* 日间：页脚 */
+[data-md-color-scheme="default"] .md-footer {
+  border-top: 1px solid rgba(139, 115, 85, 0.2);
+}
+
+/* 日间：头像 */
+[data-md-color-scheme="default"] .avatar {
+  border-color: rgba(13, 126, 183, 0.35);
+  box-shadow: 0 0 8px rgba(13, 126, 183, 0.15);
+}
+
+/* --- 全局符文特效动画 --- */
+@keyframes rune-pulse {
+  0%   { opacity:1; transform:scale(0); }
+  100% { opacity:0; transform:scale(6); }
+}
+@keyframes trail-fade {
+  0%   { opacity:1; transform:scale(1); }
+  100% { opacity:0; transform:scale(0.3); }
+}
+
+/* --- 移动端 --- */
+@media (max-width: 768px) {
+  .md-main { padding: 0.5rem; }
+  .sheikah-hud { gap: 14px; }
+  .profile-card { padding: 1rem; margin: 1rem 0; }
+}
