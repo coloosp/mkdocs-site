@@ -173,9 +173,11 @@ theme:
 extra_css:
   - stylesheets/extra.css
   - stylesheets/transition.css
+  - stylesheets/chatbot.css
 
 extra_javascript:
   - stylesheets/transition.js
+  - stylesheets/chatbot.js
 
 markdown_extensions:
   - pymdownx.highlight:
