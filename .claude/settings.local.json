@@ -3,7 +3,12 @@
     "allow": [
       "Bash(git init *)",
       "Bash(git remote *)",
-      "Bash(du -sh --exclude=zelda-hyrule-ui-main --exclude=site --exclude=音乐合集 --exclude=.git .)"
+      "Bash(du -sh --exclude=zelda-hyrule-ui-main --exclude=site --exclude=音乐合集 --exclude=.git .)",
+      "Bash(git commit -m '重构博客：希卡之石主题 + 简化导航 + 交互特效 + 音效 *)",
+      "Bash(git config *)",
+      "Bash(git commit *)",
+      "Bash(git push *)",
+      "Bash(git branch *)"
     ]
   }
 }
