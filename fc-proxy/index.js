@@ -40,7 +40,7 @@ exports.handler = async (req, resp, context) => {
         'Authorization': `Bearer ${key}`,
       },
       body: JSON.stringify({
-        model: body.model || 'deepseek-chat',
+        model: body.model || 'deepseek-v4-flash',
         messages: body.messages || [],
         max_tokens: body.max_tokens || 1024,
         temperature: body.temperature ?? 0.7,

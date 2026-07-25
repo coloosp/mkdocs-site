@@ -63,7 +63,7 @@
         method: 'POST',
         headers: { 'Content-Type': 'application/json', 'Authorization': 'Bearer ' + apiKey },
         body: JSON.stringify({
-          model: 'deepseek-chat',
+          model: 'deepseek-v4-flash',
           messages: [{ role: 'system', content: SYSTEM_PROMPT }].concat(history),
           max_tokens: 1024, temperature: 0.7,
         }),
