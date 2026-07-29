@@ -5,3 +5,28 @@
   <!-- Roboto font for BOTW theme (Hylia Serif is loaded in extra.css) -->
   <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,500;0,700;1,400;1,500;1,700&display=swap" rel="stylesheet" />
 {% endblock %}
+
+{% block content %}
+  {{ super() }}
+  <!-- Giscus 评论区 -->
+  {% if page.meta.comments is not defined or page.meta.comments != false %}
+  <div id="giscus-container" style="max-width: 800px; margin: 2rem auto; padding: 0 1rem;">
+    <h2 style="border-bottom: 1px solid var(--md-default-fg-color--lightest); padding-bottom: 0.5rem; margin-bottom: 1rem;">💬 评论</h2>
+    <script src="https://giscus.app/client.js"
+        data-repo="coloosp/mkdocs-site"
+        data-repo-id="R_kgDOQ0hU3w"
+        data-category="Comments"
+        data-category-id="DIC_kwDOQ0hU384DCN9b"
+        data-mapping="pathname"
+        data-strict="0"
+        data-reactions-enabled="1"
+        data-emit-metadata="0"
+        data-input-position="bottom"
+        data-theme="dark_tritanopia"
+        data-lang="zh-CN"
+        crossorigin="anonymous"
+        async>
+    </script>
+  </div>
+  {% endif %}
+{% endblock %}
